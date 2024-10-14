@@ -1,0 +1,24 @@
+{
+  "healthcare_data": {
+    "patients": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "age": 45,
+        "gender": "male"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "age": 37,
+        "gender": "female"
+      },
+      {
+        "id": 3,
+        "name": "Alice Johnson",
+        "age": 60,
+        "gender": "female"
+      }
+    ]
+  }
+}

@@ -8,9 +8,14 @@ data_dir = Path.cwd() / 'data'
 # Specify the path to your JSON file
 input_file_path = data_dir / 'input.json'  # Path for the input JSON file
 output_file_path = data_dir / 'output.xml'  # Path for the output XML file
+print(f"Looking for file at: {input_file_path}")
+
+from pathlib import Path
+
+
 
 # Open and read the JSON file
-with open(/Users/sriramyapanja/PycharmProjects/week_7_lab_1 'r') as file:
+with open(input_file_path, 'r') as file:
     data = json.load(file)  # Load JSON data into a Python dictionary
 
 # Extract healthcare data and patient information from the JSON data
@@ -32,10 +37,11 @@ root.set("id", str(first_patient_id))  # Set the patient's ID as an attribute of
 patient_name = etree.SubElement(root, "name")  # Create a 'name' element as a child of 'patient'
 patient_name.text = first_patient_name  # Set the text of the 'name' element to the patient's name
 
-# Add sub-elements for age and gender
+# Add a sub-element for the patient's age and set its text
 patient_age = etree.SubElement(root, "age")  # Create an 'age' element as a child of 'patient'
 patient_age.text = str(first_patient_age)  # Set the text of the 'age' element to the patient's age
 
+# Add a sub-element for the patient's gender and set its text
 patient_gender = etree.SubElement(root, "gender")  # Create a 'gender' element as a child of 'patient'
 patient_gender.text = first_patient_gender  # Set the text of the 'gender' element to the patient's gender
 
@@ -48,3 +54,6 @@ tree = etree.ElementTree(root)
 # 'encoding="UTF-8"' ensures the file is encoded in UTF-8
 with open(output_file_path, "wb") as file:
     file.write(etree.tostring(tree, pretty_print=True, xml_declaration=True, encoding='UTF-8'))
+
+print(f"Data written to {output_file_path}")
+
